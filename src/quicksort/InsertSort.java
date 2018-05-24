@@ -40,11 +40,11 @@ public class InsertSort {
             for (j = i; j > 0 && a[j - 1] > temp; j--) {
 
                 a[j] = a[j - 1];
-                System.out.println("---" + Arrays.toString(a));
+                System.out.println("     a[" + i + "]  temp:" + temp + "---" + Arrays.toString(a));
             }
 
             a[j] = temp;
-            System.out.println(Arrays.toString(a));
+            System.out.println("a[" + i + "]  " + Arrays.toString(a));
 
 
         }
