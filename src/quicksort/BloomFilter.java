@@ -59,7 +59,7 @@ public class BloomFilter {
      *
      * @param key
      */
-    public void add(int key) {
+    public void add(long key) {
         int first = firstHash(key + "");
         int second = secondHash(key + "");
         int third = thirdHash(key + "");
@@ -77,7 +77,7 @@ public class BloomFilter {
      * @param key
      * @return
      */
-    public boolean check(int key) {
+    public boolean check(long key) {
         int first = firstHash(key + "");
         int second = secondHash(key + "");
         int third = thirdHash(key + "");
@@ -102,13 +102,12 @@ public class BloomFilter {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         BloomFilter bloomFilter = new BloomFilter(100000000);
         for (int i = 1000; i < 100000000; i++) {
-            bloomFilter.add(i);
-            i = i + 2;
+            bloomFilter.add(System.currentTimeMillis());
         }
-        boolean check = bloomFilter.check(10000009);
+        boolean check = bloomFilter.check(1000000000000000L);
         System.out.println(check);
     }
 }
